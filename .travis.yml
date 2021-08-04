@@ -24,7 +24,7 @@ before_install:
   - echo "Using flake8 to check Python code"
   - flake8 *.py
   - echo "Using black to check Python code"
-  - black --check --verbose --exclude=^.*\b(migrations)\b.*$
+  #- black --check --verbose --exclude=^.*\b(migrations)\b.*$
   #- echo "Using flake8 to check tests (with lots of exclusions)"
   #- flake8 tests/
 
@@ -34,7 +34,7 @@ install:
 script:
   - echo "On this machine \$LANG=$LANG"
   - echo "Checking our own code passes"
-  - flake8 --select BLK *.py
+  - flake8 
   #- cd tests
   #- ./run_tests.sh
 
