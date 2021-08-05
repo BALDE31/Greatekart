@@ -43,11 +43,11 @@ class Account(AbstractBaseUser, PermissionsMixin):
 
     # required
     date_joined = models.DateTimeField(auto_now_add=True)
+    #last_login = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)
     is_superadmin = models.BooleanField(default=False)
-    last_login = models.DateTimeField(auto_now_add=True)
 
     objects = MyAccountManager()
 
@@ -56,11 +56,10 @@ class Account(AbstractBaseUser, PermissionsMixin):
     REQUIRED_FIELDS = ['username', 'first_name', 'last_name']
 
     def __str__(self):
-        return self.email
+        return self.first_name
 
     def has_perms(self, perm, obj=None):
         return self.is_admin
 
     def has_module_perms(self, app_label):
         return True
- 
