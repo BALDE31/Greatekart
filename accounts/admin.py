@@ -8,9 +8,10 @@ from django.utils.translation import gettext as _
 
 
 class AccountAdmin(UserAdmin):
-    ordering = ['id']
+    ordering = ['date_joined']
     list_display = ('email', 'first_name', 'last_name',
                     'username', 'last_login', 'date_joined', 'is_active')
+    readonly_fields = ('last_login', 'date_joined')
     filter_horizontal = ()
     list_filter = ['last_name', 'username']
     search_fields = ['last_name', 'first_name', 'email']
